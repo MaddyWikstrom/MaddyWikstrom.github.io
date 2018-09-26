@@ -127,6 +127,7 @@ background(0); //eye is closed
 function runAway(){
 youAreTired();
 }
+
 //animations for cab and dog options
 function cabinAnim(){
 //background(cabin);
