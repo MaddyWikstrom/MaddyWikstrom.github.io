@@ -31,17 +31,41 @@ var walkLeft;
 var goPet;
 var tired;
 
+//sounds
+
+var forestSound;
+var bark;
+var runningOnLeaves;
+var breathing; //look at sound dom libary online
+//button checks for pausing and looping
+
+
+function preload(){
+//spaceBG = loadImage('./images/space.png');
+//forestSound = loadSound('./audio/forestSound.mp3')
+//bark = loadSound('./audio/bark.mp3');
+
+}
 
 function setup(){
-background(0);
-greeting = createP('Hello, which way path you choose');
-createElement('br');
+
+	canvas = createCanvas(windowWidth, windowHeight);
+    canvas.position(0,0);
+    canvas.style("z-index", "-1");
+    
+    beginning();
+}
+
+function beginning(){
+	background(0); //image of forest
+	//forestSound.play();
+	greeting = createP('Hello, which way path you choose');
+	createElement('br');
 
 	nameInput = createInput("type your name here");
 	nameInput.changed(startStory);
-
-
 }
+
 function startStory(){
 greeting.hide();
 nameInput.hide();
@@ -59,6 +83,7 @@ secondOption.mousePressed(walkLeft);
 function walkLeft(){
 
 walkLeft = true;
+walkRight = false;
 userName.html(nameInput.value());
 
 title.html('you see a stray dog');
@@ -70,6 +95,10 @@ secondOption.mousePressed(runAway);
 }
 
 function goPet(){
+	goPet = true;
+	runAway = false;
+firstOption.hide();//may need to delete this later
+secondOption.hide();
 
 background(0);  // go pet dog here
 title.html('the dog is friendly');
@@ -79,11 +108,19 @@ leaveForest();
 
 }
 function leaveForest(){
+	firstOption.hide();
+	secondOption.hide();
 
 	background(0); //background of dog leading you out
 	title.html('the dog leads you out of the forest');
 	background(0);//road with sunset
 	title.html('congratulations you made it out alive');
+}
+function runAway(){
+runAway = true;
+goPet = false;
+
+
 }
 
 function youAreTired(){
@@ -106,7 +143,8 @@ if(mousePressed() == true){
 }
 }
 
-//loadSound / preload images .stop .play .isPlaying
+//loadSound / preload images .stop .play .isPlaying waybackmachine
+//save as an .mp3 in sound folder and call from sound folder in .html
 //these are closed eye and run away anims
 
 function tiredZoom(){
@@ -154,7 +192,7 @@ var minutes = seconds * 60;
 var hours = minutes * 60;
 var days = hours * 24;
 
-for(int i = 0; i < 100000000; i++){
+for(var i = 0; i < 100000000; i++){
 seconds++;
 if(seconds == 59){
 	minutes++;
