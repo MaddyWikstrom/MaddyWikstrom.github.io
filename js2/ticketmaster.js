@@ -1,4 +1,6 @@
 
+
+
 var canvas;
 
 //ticketmaster url data
@@ -33,7 +35,7 @@ var countryUS = ',us';
 var imageAPI = "http://openweathermap.org/img/w/";
 var pngkey = '.png'
 
-
+var txt;
 
 //images
 var city1BG;
@@ -71,20 +73,23 @@ console.log(weatherData.wind.speed);
 
 function ifweather(){
 
-	if(gotWeatherData(weatherData.main.temp) > 70){
-    console.log(gotTicketmasterData.main.classifications.genre.name == "Rap");
+weatherData = data;
+  if(gotWeatherData(weatherData.main.temp) > 70){
+    text("You should go see a "+ ticketmasterData.classificationName[0] + " show today");
+
+    //console.log(gotTicketmasterData.main.classifications.genre.name == "Rap");
 
   }
   else if(gotWeatherData(weatherData.main.temp) > 35 && gotWeatherData(weatherData.main.temp) < 70){
-    console.log(gotTicketmasterData.main.classifications.genre.name == "Alternative Rock");
+     text("You should go see a "+ ticketmasterData.classificationName[1] + " show today");
   }
   else if(gotWeatherData(weatherData.main.temp > 10 && gotWeatherData(weatherData.main.temp) < 35)){
-    console.log(gotTicketmasterData.main.classifications.gerne.name == "Pop");
+     text("You should go see a "+ ticketmasterData.classificationName[2] + " show today");
   }
   else{
-    console.log(gotTicketmasterData.main.classifications.genre.name == "Rock");
+     text("You should go see a "+ ticketmasterData.classificationName[3] + " show today");
   }
-	
+  
 
 
 }
@@ -96,7 +101,8 @@ canvas.position(0,0);
 canvas.style("z-index","-1");
 
 var button = select('#submit'); 
-button.mousePressed(weatherAsk);   //,displayWeather
+button.mousePressed(weatherAsk);
+
 
 // var button2 = select('#go');
 // button2.mousePressed(ifweather());
@@ -110,12 +116,17 @@ input = select('#city');
 function weatherAsk(){
 
 var url = api + input.value() + apikey + units; // + zipweather + zipcodeInput.value() + countryUS;
-loadJSON(url, gotWeatherData);
+loadJSON(url, gotWeatherData, displayWeather());
+//displayWeather();
 }
 
 function displayWeather(){
 
+if(weatherData){
+textSize(20);
+text("The current forecast for "+ input.value() + " right now is " + weatherData.weather[0].description,0,90);
 
+}
 }
 
 
@@ -135,31 +146,6 @@ function beginning(){
   zipcodeInput = createInput("type your zipcode here");
   zipcodeInput.changed(getLocation);
 
-
-//you have an extra getevents function call somewhere as
-//well as you need to figure out your input bars 
-
-//have one input for getLocation
-//one for showEvent
-//one for zipcode weather
-
-//also you need to figure out whats wrong with the askweather funct it 
-//might be being called somewhere else 
-//organize ur shit and gets some actual methods maybe watch a video and cut down on some methods
-//maybe create a new class at least for the time being and then combine it all
-//fianlly psuh everything to your git repository
-
-
-//figure out if weather and console log stuff its super fucked
-//also get html shit together your divs are messed up
-
-
-  //zipcodeInput.changed(getEvents(page);
-
- //getEvents(page); 
-//getLocation(); 
-
-
 }
 
 function search(){
@@ -177,9 +163,7 @@ function draw(){
 
 
 
-
 }
-
 
 
 //ticketmaster javascript funcitons for locating events 
