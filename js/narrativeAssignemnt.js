@@ -16,8 +16,7 @@ var txt2;
 //inputs
 var nameInput;
 
-//animation variables
-
+//animation variables0
 var walking;
 var running;
 var openEye;

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticketmaster Weather API</title> 
+     <style> body {
+
+             font-family: Arial;
+             padding:0;
+              margin: 0;
+              color: white;
+              text-shadow: 
+              -1px -1px 0 #000,
+               1px -1px 0 #000,
+              -1px 1px 0 #000,
+               1px 1px 0 #000; 
+            } 
+             #attraction-panel {
+            display:none;
+            }
+            button
+            {
+            paddng: 10px;
+            margin: 10px;
+            }
+            a{
+              text-decoration: none;
+              color: white;
+
+            }
+            
+
+
+  </style>
+
+<script type="text/javascript">
+function toggleEventDiv(id){
+  
+  var divelement = document.getElementById(id);
+
+  if(divelement.style.display == 'none')
+      divelement.style.display = 'block';
+  else
+    divelement.style.display = 'none';
+}
+
+</script>
+
+
+
+    <script src="js/p5.min.js"></script>
+    <script src="js/p5.dom.min.js"></script>
+    <script src="js/p5.sound.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> 
+    <script src="js/ticketmaster.js"></script> 
+
+
+    <p>
+    City: <input id = "city" value = "Chicago"></input>
+  </br>
+  <button id = "submit">Change Weather Location</button>
+</p>
+
+   <link rel="stylesheet" type="text/css" href="style.css">
+  
+<!-- added meta -->
+       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+ 
+<button onclick = "toggleEventDiv('sectiontohide');">Display Events</button> 
+
+
+
+
+
+    <p id="location"></p> <!-- not sure whats acutally supposed to go here -->
+    <div id="map"></div>
+    <div id="events"></div>
+   <!--  <script src="script.js"></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js" async defer></script>
+
+
+
+<!-- go back -->
+<!-- <button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+ -->
+<!-- go forward -->
+
+<!-- <button onclick="goForward()">Go Forward</button>
+
+<script>
+function goForward() {
+    window.history.forward();
+}
+</script> -->
+
+
+
+<!-- </script>
+ -->
+
+
+
+
+
+
+
+
+<!-- added event api -->
+<!-- t his is now a function to fix it change it back to a div element -->
+
+<!-- <script>function eventShows(){ -->
+
+
+<div id = "sectiontohide">
+<!-- <script type="text/javascript" src = "jquery.js"></script>
+<input type = "button" id = "show" value = "Show Events">
+<input type = "button" id = "hide" value = "Hide Events">
+ <div id ="data3">
+<script type="text/javascript" src="ticketmaster.js"></script> -->
+
+
+ <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+        <div id='events-panel' class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Events</h3>
+          </div>
+          <div class="panel-body">
+            <div id="events" class="list-group">
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="venue"></p>
+              </a>
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="venue"></p>
+              </a>
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="venue"></p>
+              </a>
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Event title</h4>
+                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="venue"></p>
+              </a>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <nav>
+              <ul class="pager">
+                <li id="prev" class="previous"><a href="#"><span aria-hidden="true">&larr;</span></a></li>
+                <li id="next" class="next"><a href="#"><span aria-hidden="true">&rarr;</span></a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        
+        <div id='attraction-panel' class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Attraction</h3>
+          </div>
+          <div id="attraction" class="panel-body">
+            <h4 class="list-group-item-heading">Attraction title</h4>
+            <img class="col-xs-12" src="">
+            <p id="classification"></p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</div>
+
+<!-- </script>  -->
+
+<!-- something is wrong with how the scripts are lining up there is an extra in there at div is attraction panel maybe its not opening correctly? -->
+ 
+
+<!--  ctrl / highlight
+-->
+
+  </body>
+</html>
