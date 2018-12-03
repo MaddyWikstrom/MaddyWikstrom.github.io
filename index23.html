@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>twenty | one | pilots |-/</title>
+    <script src="libraries/p5.js" type="text/javascript"></script>
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="libraries/p5.sound.js" type="text/javascript"></script>
+    
+    <script src = "seriously.js"></script>
+    <script src = "libraries/effects/seriously.blur.js"></script>
+    <script src="webcam2.js" type="text/javascript"></script> 
+   
+
+
+    <style> 
+    select{
+        background-color: gray;
+        border:1px solid black;
+        font-family: Courier;
+        font-size: 40;
+        color:#F0DB66;
+        width: 200px;   /*200px*/
+        height: 30px;   /*30*/
+
+      }
+      body {
+        padding: 0px;
+        margin: 0px;
+        font-family: Courier;
+
+        color: #F0DB66;
+
+      }
+
+
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 30px; 
+    text-shadow: 2px 2px #b6a401;   
+    /*border: 2px, 2px #b6a401;
+    outline: 2px 2px #b6a401;*/
+    border: none;
+    outline: none;
+    position: relative;
+    top: 400;
+    right: 350;
+    color: #F0DB66;
+    padding: 20px 22px; /*14x16*/
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: gray;
+}
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    top: 400;
+    right: 370;
+    background-color: gray;
+    min-width: 194px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: #F0DB66;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #b6a401;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.home{
+
+  float: left;
+  position: relative;
+  top:100;
+  right:600;
+  color: #F0DB66;
+  padding: 8px 16px;
+  
+
+}
+
+ul {
+    float: right;
+    position: relative;
+
+    top: 325px;
+    right: 180px; /*274 163*/
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 194px;
+    background-color: #f2f2f2, opacity: 0.3;
+    
+}
+
+
+
+
+li a {
+    float: right;
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+   
+}
+
+li{
+  text-align: center;
+}
+
+
+li a.active {
+    background-color: #4CAF50;
+    color: gray;
+}
+
+li a:hover:not(.active) {
+    background-color: #555;
+    color: gray;
+}
+
+    </style>
+  </head>
+  <body>
+
+
+
+  <a id = "home" href="http://localhost:8888/webcampjct/index23.html">start over</a>
+ <!--  <li><a id="vids" href="javascript:void(0);" onclick="displayVids();" >Videos</a></li>
+  <li> <a id="webcam2" href="javascript:void(0);" onclick="simpleCapture();" >Webcam</a></li>
+  <li><a href="http://www.twentyonepilots.com/">Website</a> --> 
+<ul>
+  <div class="dropdown"></li>
+    <button class="dropbtn">Videos
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="https://www.youtube.com/watch?v=UOUBW8bkjQ4&list=PL6QUkAJ-v4eiwp0fMV463L_9F82OFzACp">Trench</a>
+      <a href="https://www.youtube.com/watch?v=r_9Kf0D5BTs&list=PLE3s44JJs0suRonkrN1wheV1TQ9z1dwKZ">Blurryface</a>
+      <a href="https://www.youtube.com/watch?v=ktBMxkLUIwY&list=PLwj3BHOc18SxeLmAnp9CNHm4-dM_mO-bE">Vessel</a>
+      <a href="https://www.youtube.com/watch?v=QLMN5bU3fFU&list=PLfKldeSwEGnc4m0CI1qTW7j0rfy0Cp1oo">Self-titled</a>
+      <a href="https://www.youtube.com/watch?v=3_NdwoTQykY&list=PLd5Lky4G5oAYxFOciYWKXMQq4NcAw_oBL">Regional at Best
+    </div>
+  </div>
+</li>
+</ul>
+</body>
+</html>
